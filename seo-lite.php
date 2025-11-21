@@ -3,7 +3,7 @@
  * Plugin Name: SEO Lite
  * Plugin URI: https://github.com/fredericoalmeidalopes/seo-pt/
  * Description: Scanner simplificado para SEO e linguagem, com pontuação e upsell para versão PRO.
- * Version: 1.0.3
+ * Version: 3.1.0
  * Author: Frederico Lopes
  * Author URI: https://github.com/fredericoalmeidalopes/
  * License: GPL2
@@ -12,14 +12,12 @@
 
 if (!defined('ABSPATH')) { exit; }
 
-spl_autoload_register(function ($class) {
-    if (strpos($class, 'SEO\\Lite\\') === 0) {
-        $path = str_replace('SEO\\Lite\\', '', $class);
-        $path = str_replace('\\', '/', $path);
-        $file = plugin_dir_path(__FILE__) . 'src/' . $path . '.php';
-        if (file_exists($file)) { require_once $file; }
-    }
-});
+require_once plugin_dir_path(__FILE__) . 'src/Admin/Menu.php';
+require_once plugin_dir_path(__FILE__) . 'src/Admin/DashboardPage.php';
+require_once plugin_dir_path(__FILE__) . 'src/Core/Scanner.php';
+require_once plugin_dir_path(__FILE__) . 'src/Core/ScoreCalculator.php';
+require_once plugin_dir_path(__FILE__) . 'src/Notifications/AdminNotice.php';
+require_once plugin_dir_path(__FILE__) . 'src/Upsell/UpsellMessage.php';
 
 add_action('init', function(){
     load_plugin_textdomain('seo-lite', false, dirname(plugin_basename(__FILE__)) . '/languages');

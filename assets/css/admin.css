@@ -1,2 +1,1 @@
-.seo-lite-upgrade-btn { background:#28a745;color:#fff;font-weight:bold;padding:12px 20px;text-decoration:none;border-radius:4px;display:inline-block; }
-.seo-lite-upgrade-btn:hover { background:#218838; }
+.seo-lite-dashboard .cards{display:flex;gap:20px;flex-wrap:wrap}.card{background:#fff;padding:20px;border-radius:8px;box-shadow:0 2px 8px rgba(0,0,0,0.1);flex:1;min-width:250px}.card.upgrade{text-align:center;background:#f9f9f9}.button-primary.button-large{font-size:18px;padding:14px 24px}.bar{background:#eee;border-radius:6px;margin:10px 0;overflow:hidden}.bar span{display:block;padding:8px;color:#fff;font-weight:bold;border-radius:6px}.critical{color:#d63638;font-weight:bold}.details{font-size:13px;color:#555;margin-top:5px}

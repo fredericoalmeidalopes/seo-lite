@@ -11,23 +11,38 @@ class DashboardPage {
         $score = new ScoreCalculator($errors);
         $current = $score->getCurrentScore();
         $potential = $score->getPotentialScore();
-        echo '<div class="wrap">';
-        echo '<h1>' . esc_html__('SEO Lite - Análise Simplificada','seo-lite') . '</h1>';
-        echo '<p>' . sprintf(__('Foram detetados %d problemas que estão a prejudicar o ranking deste site.','seo-lite'), $errors) . '</p>';
-        echo '<p>' . sprintf(__('Erros linguísticos encontrados: %d','seo-lite'), $languageErrors) . '</p>';
+
+        echo '<div class="wrap seo-lite-dashboard">';
+        echo '<h1>SEO Lite - Painel de Análise</h1>';
+        echo '<div class="cards">';
+
+        // Card Resumo com explicações técnicas
+        echo '<div class="card">';
+        echo '<h2>Resumo da Análise</h2>';
+        echo '<p>Problemas totais: <strong>' . $errors . '</strong></p>';
+        echo '<p>Erros linguísticos: <strong>' . $languageErrors . '</strong></p>';
         if ($schemaError) {
-            echo '<div style="background:#ffecec;border:1px solid #ff0000;padding:10px;margin:15px 0;">';
-            echo '<strong>' . esc_html__('Erro crítico no schema do território!','seo-lite') . '</strong>';
-            echo '<p>' . esc_html__('Inconsistência no Schema.org LocalBusiness/Place com geocoordenadas/endereçamento. Impacto: perda de relevância semântica, menor visibilidade em pacotes locais e rich results. Corrija com a versão PRO para normalizar JSON-LD (address, geo, areaServed) e reforçar E-E-A-T.','seo-lite') . '</p>';
-            echo '</div>';
+            echo '<p class="critical">Erro crítico no schema do território!</p>';
+            echo '<p class="details">Inconsistência no Schema.org (<code>LocalBusiness</code>/<code>Place</code>) com dados JSON-LD incompletos (geocoordenadas, <code>address</code>, <code>areaServed</code>). Impacto: perda de relevância semântica, menor visibilidade em rich results e pacotes locais. Corrija com a versão PRO para normalizar marcação e reforçar E-E-A-T.</p>';
         }
-        echo '<h2>' . esc_html__('Pontuação SEO','seo-lite') . '</h2>';
-        echo '<p>' . sprintf(__('SEO Score Atual: %d/100','seo-lite'), $current) . '</p>';
-        echo '<p>' . sprintf(__('Pontuação com Versão Pro: %d/100','seo-lite'), $potential) . '</p>';
-        echo '<div style="margin-top:20px;padding:15px;background:#f9f9f9;border:1px solid #ddd;border-radius:6px;text-align:center;">';
-        echo '<p style="font-size:16px;font-weight:bold;color:#333;margin-bottom:10px;">' . esc_html__('✅ Corrija erros críticos e melhore o ranking com a versão PRO','seo-lite') . '</p>';
-        echo '<a class="seo-lite-upgrade-btn" href="https://github.com/fredericoalmeidalopes/seo-pt/" target="_blank">' . esc_html__('Saiba como resolver → Versão PRO','seo-lite') . '</a>';
+        echo '<p class="details">Erros linguísticos afetam legibilidade, UX, CTR e SEO semântico. Corrija para melhorar ranking e experiência do utilizador.</p>';
         echo '</div>';
+
+        // Card Pontuação com barras
+        echo '<div class="card">';
+        echo '<h2>Pontuação SEO</h2>';
+        echo '<div class="bar"><span style="width:' . $current . '%;background:' . ($current>=80?'#46b450':($current>=50?'#ffb900':'#dc3232')) . '">' . $current . '% Atual</span></div>';
+        echo '<div class="bar"><span style="width:' . $potential . '%;background:' . ($potential>=80?'#46b450':($potential>=50?'#ffb900':'#dc3232')) . '">' . $potential . '% Com PRO</span></div>';
         echo '</div>';
+
+        // Card Upgrade
+        echo '<div class="card upgrade">';
+        echo '<h2>Melhore o seu SEO</h2>';
+        echo '<p>Corrija erros críticos e aumente a sua pontuação com a versão PRO.</p>';
+        echo '<a class="button button-primary button-large" href="https://github.com/fredericoalmeidalopes/seo-pt/" target="_blank">Upgrade para PRO</a>';
+        echo '</div>';
+
+        echo '</div>'; // cards
+        echo '</div>'; // wrap
     }
 }
