@@ -1,4 +1,4 @@
-# SEO Lite Bars
+# SEO Lite 
 
 Um plugin WordPress simples e leve que analisa páginas e artigos para
 fornecer uma pontuação SEO rápida, apresentando barras de desempenho no
