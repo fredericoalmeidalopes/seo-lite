@@ -1,6 +1,6 @@
 <?php
 namespace SEO\Lite\Notifications;
-class AdminNotice { public function init(){ add_action('admin_notices',[$this,'showNotice']); }
+class AdminNotice { public function init(){ add_action('admin_notices',[$this,'showNotice']); add_action('admin_init', [$this, 'dismissNotice']); }
     public function showNotice(){
         // Verifica se o utilizador já dispensou a notificação
         if (get_user_meta(get_current_user_id(), 'seo_lite_conversion_notice_dismissed', true)) {
@@ -16,14 +16,14 @@ class AdminNotice { public function init(){ add_action('admin_notices',[$this,'s
         // Estrutura da notificação de conversão
         echo '<div class="seo-lite-conversion-notice">';
         echo '<div class="seo-lite-conversion-notice-content">';
-        echo '<h3 class="seo-lite-conversion-notice-title">' . esc_html__('O desempenho SEO do seu site está a ser prejudicado!O Google pode não estar a mostrar o seu site corretamente.', 'seo-lite') . '</h3>';
-        echo '<p class="seo-lite-conversion-notice-description">' . esc_html__('Sem as funcionalidades avançadas do SEO Pro, o seu site pode estar a ser ultrapassado pela concorrência. Melhore a visibilidade ativando o SEO para Portugal', 'seo-lite') . '</p>';
+        echo '<h3 class="seo-lite-conversion-notice-title">' . esc_html__('SEO Lite: Otimize o seu site e domine o Google!', 'seo-lite') . '</h3>';
+        echo '<p class="seo-lite-conversion-notice-description">' . esc_html__('Desbloqueie análises avançadas, sugestões de conteúdo e correção automática de erros com a Versão PRO.', 'seo-lite') . '</p>';
         echo '</div>';
         echo '<div class="seo-lite-conversion-notice-actions">';
         // Botão para o Painel de Opções (Assumindo que o slug do menu é 'seo-lite-dashboard')
-        echo '<a href="' . esc_url(admin_url('admin.php?page=seo-lite-dashboard')) . '" class="button button-secondary">' . esc_html__('Ver limitações atuais', 'seo-lite') . '</a>';
+        echo '<a href="' . esc_url(admin_url('admin.php?page=seo-lite-dashboard')) . '" class="button button-secondary">' . esc_html__('Configurar SEO Lite', 'seo-lite') . '</a>';
         // Botão para a Versão PRO
-        echo '<a href="https://seo-pt.pt/" target="_blank" class="button button-primary">' . esc_html__('Obter SEO PT-PT', 'seo-lite') . '</a>';
+        echo '<a href="https://seo-pt.pt/" target="_blank" class="button button-primary">' . esc_html__('Desbloquear Versão PRO', 'seo-lite') . '</a>';
         echo '</div>';
         // Botão para dispensar
         echo '<a href="' . esc_url($dismiss_url) . '" class="dismiss-button">' . esc_html__('Dispensar', 'seo-lite') . '</a>';
@@ -40,9 +40,5 @@ class AdminNotice { public function init(){ add_action('admin_notices',[$this,'s
         }
     }
 
-    // Modificar o init para adicionar a ação de dispensar
-    public function init(){
-        add_action('admin_notices',[$this,'showNotice']);
-        add_action('admin_init', [$this, 'dismissNotice']);
-    }
+    
 }
