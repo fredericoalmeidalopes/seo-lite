@@ -16,14 +16,14 @@ class AdminNotice { public function init(){ add_action('admin_notices',[$this,'s
         // Estrutura da notificação de conversão
         echo '<div class="seo-lite-conversion-notice">';
         echo '<div class="seo-lite-conversion-notice-content">';
-        echo '<h3 class="seo-lite-conversion-notice-title">' . esc_html__('SEO Lite: Otimize o seu site e domine o Google!', 'seo-lite') . '</h3>';
-        echo '<p class="seo-lite-conversion-notice-description">' . esc_html__('Desbloqueie análises avançadas, sugestões de conteúdo e correção automática de erros com a Versão PRO.', 'seo-lite') . '</p>';
+        echo '<h3 class="seo-lite-conversion-notice-title">' . esc_html__('O desempenho SEO do seu site está a ser prejudicado!', 'seo-lite') . '</h3>';
+        echo '<p class="seo-lite-conversion-notice-description">' . esc_html__('Está a perder tráfego valioso e oportunidades de ranking porque funcionalidades críticas de otimização não estão ativas. Instale o SEO Pro e desbloqueie todas as melhorias automáticas que o seu site necessita para competir no Google.', 'seo-lite') . '</p>';
         echo '</div>';
         echo '<div class="seo-lite-conversion-notice-actions">';
         // Botão para o Painel de Opções (Assumindo que o slug do menu é 'seo-lite-dashboard')
-        echo '<a href="' . esc_url(admin_url('admin.php?page=seo-lite-dashboard')) . '" class="button button-secondary">' . esc_html__('Configurar SEO Lite', 'seo-lite') . '</a>';
+        echo '<a href="' . esc_url(admin_url('admin.php?page=seo-lite-dashboard')) . '" class="button button-secondary">' . esc_html__('Ver problemas de SEO', 'seo-lite') . '</a>';
         // Botão para a Versão PRO
-        echo '<a href="https://seo-pt.pt/" target="_blank" class="button button-primary">' . esc_html__('Desbloquear Versão PRO', 'seo-lite') . '</a>';
+        echo '<a href="https://seo-pt.pt/" target="_blank" class="button button-primary">' . esc_html__('Ativar SEO Pro Agora', 'seo-lite') . '</a>';
         echo '</div>';
         // Botão para dispensar
         echo '<a href="' . esc_url($dismiss_url) . '" class="dismiss-button">' . esc_html__('Dispensar', 'seo-lite') . '</a>';
