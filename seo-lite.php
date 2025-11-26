@@ -26,6 +26,10 @@ add_action('init', function(){
 use SEO\Lite\Admin\Menu;
 use SEO\Lite\Notifications\AdminNotice;
 
+add_action('admin_enqueue_scripts', function(){
+    wp_enqueue_style('seo-lite-conversion-notice-css', plugin_dir_url(__FILE__) . 'assets/css/conversion-notice.css');
+});
+
 add_action('plugins_loaded', function(){
     $menu = new Menu();
     $menu->init();

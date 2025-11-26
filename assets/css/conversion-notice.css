@@ -1,0 +1,69 @@
+.seo-lite-conversion-notice {
+    display: flex;
+    align-items: center;
+    padding: 15px 20px;
+    margin-top: 20px;
+    margin-bottom: 15px;
+    border-left: 5px solid #00a0d2; /* Cor de destaque, pode ser ajustada */
+    background-color: #fff;
+    box-shadow: 0 1px 1px rgba(0,0,0,.04);
+}
+
+.seo-lite-conversion-notice-content {
+    flex-grow: 1;
+}
+
+.seo-lite-conversion-notice-title {
+    font-size: 1.2em;
+    font-weight: 600;
+    margin: 0 0 5px 0;
+    color: #222;
+}
+
+.seo-lite-conversion-notice-description {
+    font-size: 1em;
+    margin: 0;
+    color: #555;
+}
+
+.seo-lite-conversion-notice-actions {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    margin-left: 20px;
+}
+
+.seo-lite-conversion-notice .button {
+    text-decoration: none;
+    padding: 8px 15px;
+    line-height: 1;
+    height: auto;
+    border-radius: 3px;
+    cursor: pointer;
+    font-size: 13px;
+}
+
+.seo-lite-conversion-notice .button-secondary {
+    background: #f3f3f3;
+    border-color: #ccc;
+    color: #555;
+}
+
+.seo-lite-conversion-notice .button-primary {
+    background: #00a0d2; /* Cor primária do WordPress */
+    border-color: #0073aa;
+    color: #fff;
+    box-shadow: 0 1px 0 #0073aa;
+    text-shadow: 0 -1px 1px #0073aa, 1px 0 1px #0073aa, 0 1px 1px #0073aa, -1px 0 1px #0073aa;
+}
+
+.seo-lite-conversion-notice .dismiss-button {
+    margin-left: 15px;
+    color: #a0a0a0;
+    text-decoration: none;
+    font-size: 14px;
+}
+
+.seo-lite-conversion-notice .dismiss-button:hover {
+    color: #555;
+}
