@@ -17,7 +17,7 @@ class AdminNotice { public function init(){ add_action('admin_notices',[$this,'s
         echo '<div class="seo-lite-conversion-notice">';
         echo '<div class="seo-lite-conversion-notice-content">';
         echo '<h3 class="seo-lite-conversion-notice-title">' . esc_html__('O desempenho SEO do seu site está a ser prejudicado!', 'seo-lite') . '</h3>';
-        echo '<p class="seo-lite-conversion-notice-description">' . esc_html__('Está a perder tráfego valioso e oportunidades de ranking porque funcionalidades críticas de otimização não estão ativas. Instale o SEO Pro e desbloqueie todas as melhorias automáticas que o seu site necessita para competir no Google.', 'seo-lite') . '</p>';
+        echo '<p class="seo-lite-conversion-notice-description">' . esc_html__('Está a perder tráfego valioso e oportunidades de ranking em Portugal porque funcionalidades críticas de otimização não estão ativas. Instale o SEO PT-PT e desbloqueie todas as melhorias automáticas que o seu site necessita para competir no Google.', 'seo-lite') . '</p>';
         echo '</div>';
         echo '<div class="seo-lite-conversion-notice-actions">';
         // Botão para o Painel de Opções (Assumindo que o slug do menu é 'seo-lite-dashboard')
